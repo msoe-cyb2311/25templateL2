@@ -11,6 +11,7 @@ import java.nio.file.*;
  *
  * Usage: java OneTimePadEncryption "key sentence"
  * The key must be the same length as the plaintext in the input file.
+ * The ASCII value of the plaintext and key must between 33 and 126, inclusively (ASCII printable characters)
  */
 public class OneTimePadEncryption {
     private static final String DATA_DIR = "data";
@@ -40,6 +41,8 @@ public class OneTimePadEncryption {
      */
     private static byte[] encrypt(byte[] plaintext, byte[] key) {
         if (plaintext.length != key.length) {
+            System.out.println("laintext length is: " + plaintext.length);
+            System.out.println("key length is: " + key.length);
             throw new IllegalArgumentException(
                     "Key length (" + key.length + ") must match plaintext length (" + plaintext.length + ")"
             );
@@ -94,6 +97,7 @@ public class OneTimePadEncryption {
             // Validate command line arguments
             if (args.length != 1) {
                 System.err.println("Usage: java OneTimePadEncryption \"key sentence\"");
+                System.err.println("Please provide the encryption key through the program argument");
                 System.err.println("The key must be the same length as the plaintext.");
                 System.exit(1);
             }

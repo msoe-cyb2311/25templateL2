@@ -11,6 +11,13 @@ import java.util.*;
  * 1. First XOR pairs of ciphertexts to eliminate the encryption key
  * 2. Try guesses against these XORed plaintexts
  * 3. Look for readable English text that reveals successful matches
+ * File structure:
+ * YourProject/
+ *     ├── src/
+ *     │   └── username/
+ *     │       └── CiphertextPairXOR.java
+ *     └── data/
+ *         └── ciphertexts_to_decrypt.txt
  */
 public class CiphertextPairXOR {
     private List<String> ciphertexts;
